@@ -1,7 +1,7 @@
 import React from 'react';
 
 const About = () => {
-  return <div>About`tan selamlar</div>;
+  return <div>Mesajdan selamlar</div>;
 };
 
 export default About;
