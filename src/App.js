@@ -12,9 +12,9 @@ const App = () => (
       <Nav />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/message" component={Message} />
-        <Route exact path="/history" component={History} />
-        <Route exact path="/tasks" component={Tasks} />
+        <Route exact path="/message" component={Home} />
+        <Route exact path="/history" component={Home} />
+        <Route exact path="/tasks" component={Home} />
         <Route component={NotFound} />
       </Switch>
     </Router>
@@ -23,7 +23,8 @@ const App = () => (
 );
 
 const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Cabin+Condensed:400,500,600,700&display=swap');
+
   :root{
     --color-main:#F6A01D;
     --color-alt-main:#FCD05F;
@@ -33,13 +34,28 @@ const GlobalStyle = createGlobalStyle`
     --color-grey:#AEA1AE;
     --color-bg-grey: #F4F6F8;
     --color-text:#110F10;
-    --color-red:#F93C1A;
-    --color-blue:#3841E7;
+    --color-red:#FF7045;
+    --color-blue:#5C6AFF;
     --sidebar-width: 10vw;
   }
+  
+
   body{
+    font-family: 'Cabin Condensed', sans-serif;
     color: var(--color-text);
-    font-family: 'Roboto', sans-serif;
+
+    a {
+      text-decoration: none;
+      color: var(--color-red);
+      transition: all .4s ease;
+
+      &:hover{
+        text-decoration: none;
+      }
+      svg{
+        padding-left: 10px;
+      }
+    }
   }
 `;
 

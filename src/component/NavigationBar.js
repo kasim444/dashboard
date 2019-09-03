@@ -9,7 +9,7 @@ import {
   MailIcon,
   ClockIcon,
   CalendarIcon,
-} from '../assets/FontIcons';
+} from '../assets/font-icons/FontIcons';
 
 const Routes = [
   {
@@ -40,7 +40,7 @@ const NavigationBar = props => {
     <Styles>
       <Navbar activekey={location.pathname} expand="lg" className="position-fixed">
         <Navbar.Brand href="/">{LogoIcon}</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}
         <Navbar.Collapse id="ml-auto" className="d-flex flex-column justify-content-center">
           {Routes.map(navlink => (
             <Nav.Item key={navlink.text}>
