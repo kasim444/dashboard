@@ -14,22 +14,26 @@ import {
   faHome,
   faSearch,
   faCloud,
-  faPizzaSlice,
-  faCopyright,
+  faChartPie,
+  faAngleLeft,
+  faAngleRight,
+  faCheck,
 } from '@fortawesome/free-solid-svg-icons';
 
 const LogoIcon = <FontAwesomeIcon icon={faHeart} size="2x" />;
 const LogOutIcon = <FontAwesomeIcon icon={faSignOutAlt} size="1x" />;
-const HomeIcon = <FontAwesomeIcon icon={faHome} size="lg" />;
-const MailIcon = <FontAwesomeIcon icon={faEnvelope} size="lg" />;
-const ClockIcon = <FontAwesomeIcon icon={faClock} size="lg" />;
-const CalendarIcon = <FontAwesomeIcon icon={faCalendar} size="lg" />;
+const HomeIcon = <FontAwesomeIcon icon={faHome} size="2x" />;
+const MailIcon = <FontAwesomeIcon icon={faEnvelope} size="2x" />;
+const ClockIcon = <FontAwesomeIcon icon={faClock} size="2x" />;
+const CalendarIcon = <FontAwesomeIcon icon={faCalendar} size="2x" />;
 const SearchIcon = <FontAwesomeIcon icon={faSearch} size="lg" />;
 const BellIcon = <FontAwesomeIcon icon={faBell} size="lg" />;
 const ArrowRightIcon = <FontAwesomeIcon icon={faArrowAltCircleRight} size="lg" />;
-const GrapghIcon = <FontAwesomeIcon icon={faPizzaSlice} size="lg" />;
+const GrapghIcon = <FontAwesomeIcon icon={faChartPie} size="lg" />;
 const CloudIcon = <FontAwesomeIcon icon={faCloud} size="lg" />;
-const TickIcon = <FontAwesomeIcon icon={faCopyright} size="lg" />;
+const CheckIcon = <FontAwesomeIcon icon={faCheck} size="lg" />;
+const LeftArrowIcon = <FontAwesomeIcon icon={faAngleLeft} size="lg" />;
+const RightArrowIcon = <FontAwesomeIcon icon={faAngleRight} size="lg" />;
 
 export {
   LogoIcon,
@@ -43,5 +47,7 @@ export {
   ArrowRightIcon,
   GrapghIcon,
   CloudIcon,
-  TickIcon,
+  CheckIcon,
+  LeftArrowIcon,
+  RightArrowIcon,
 };

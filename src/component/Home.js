@@ -1,14 +1,20 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import styled from 'styled-components';
+import ProgressBar from 'react-bootstrap/ProgressBar';
 import {
   BellIcon,
   ArrowRightIcon,
   GrapghIcon,
   CloudIcon,
-  TickIcon,
+  CheckIcon,
+  LeftArrowIcon,
+  RightArrowIcon,
 } from '../assets/font-icons/FontIcons';
 import { device } from '../ui/device';
+import humanIcon from '../assets/img/human-illus.png';
+import humanIconRight from '../assets/img/human-illlus-2.png';
+import avatar from '../assets/img/avatar.png';
 
 const Home = () => {
   return (
@@ -40,23 +46,23 @@ const Home = () => {
         </div>
       </div>
       <div id="datePicker">
-        <div>
-          <div>
-            5-11 August
-            <span>
-              {'<'}
-              {'>'}
-            </span>
+        <div className="p-1">
+          <div className="d-flex flex-row align-items-center justify-content-around w-25">
+            <span>5-11 August</span>
+            <a className="datePicker d-flex align-items-center">
+              {LeftArrowIcon}
+              {RightArrowIcon}
+            </a>
           </div>
           <div>
-            <select>
-              <option>Day</option>
-              <option>Week</option>
-              <option>Year</option>
+            <select className="form-control" defaultValue="2">
+              <option value="1">Day</option>
+              <option value="2">Week</option>
+              <option value="3">Year</option>
             </select>
           </div>
         </div>
-        <div>
+        <div className="text-muted">
           <div>
             <span>Mo</span>
             <span>5</span>
@@ -85,45 +91,64 @@ const Home = () => {
             <span>Mo</span>
             <span>5</span>
           </div>
+          <div className="inProgress">In Progress</div>
         </div>
       </div>
       <div id="graph">
         <div className="progressBox">
           <div>
-            <h6>Goals achieved</h6>
-            <ul>
+            <h6>
+              <b>Goals achieved</b>
+            </h6>
+            <ul className="text-muted">
               <li>
-                {TickIcon}
+                <span className="fa-li">{CheckIcon}</span>
                 Market share
               </li>
               <li>
-                {TickIcon}
+                <span className="fa-li">{CheckIcon}</span>
                 Customer service
               </li>
               <li>
-                {TickIcon}
+                <span className="fa-li">{CheckIcon}</span>
                 Increase efficiency
               </li>
             </ul>
           </div>
-          <img src="" width="100" alt="SMART goals achieved icon" />
+          <div>
+            <img src={humanIcon} alt="SMART goals achieved icon" />
+          </div>
         </div>
         <div className="progressBox">
           <div>
+            <img src={humanIcon} alt="SMART goals achieved icon" />
+          </div>
+          <div className="d-flex flex-column justify-content-around">
             <h6>SMART progress</h6>
-            32.1% Archived Active
+            <div>
+              32.1%
+              <ProgressBar variant="warning" now={32} />
+            </div>
+            <div className="smartProgress">
+              <span>Archived</span>
+              <span>Active</span>
+            </div>
           </div>
         </div>
       </div>
-      <div id="profile">
-        <img width="30" alt="SMART avatar" />
+      <div id="profile" className="d-flex align-items-center">
+        <img src={avatar} width="50" alt="SMART avatar" />
         <span>Boniface Esanji</span>
       </div>
       <div id="getStarted">
-        <img src="" width="100%" height="300px" alt="SMART slogan" />
-        <h3>Welcome to SMART</h3>
-        <p>Goal setting and goal management software for high achievers.</p>
-        <a href="#">Get Started</a>
+        <div>
+          <img src={humanIconRight} width="100%" height="350px" alt="SMART slogan" />
+        </div>
+        <div className="d-flex flex-column align-items-start justify-content-around mt-4 pt-3">
+          <h3>Welcome to SMART</h3>
+          <p>Goal setting and goal management software for high achievers.</p>
+          <a href="#">Get Started</a>
+        </div>
       </div>
     </Content>
   );
@@ -132,13 +157,13 @@ const Home = () => {
 const Content = styled.main`
   display: grid;
   grid-template-columns: 2fr 1fr;
-  grid-template-rows: 10% 25% 25% 35%;
+  grid-template-rows: 10% 33% 25% 32%;
   grid-template-areas:
     'search profile'
     'price getStarted'
     'datePicker getStarted'
     'graph getStarted';
-  padding: 20px 0px 20px 50px;
+  padding: 0px 0px 20px 50px;
   column-gap: 100px;
   @media ${device.laptop} {
     row-gap: 5px;
@@ -179,6 +204,9 @@ const Content = styled.main`
     }
 
     div.sloganWrapper {
+      svg {
+        padding-left: 10px;
+      }
       h1 {
         font-size: 2rem;
       }
@@ -223,6 +251,38 @@ const Content = styled.main`
     align-items: normal;
     justify-content: space-around;
 
+    .datePicker {
+      padding: 2px 15px;
+      background-color: var(--color-red);
+      color: white;
+      border-radius: 30px;
+      cursor: pointer;
+
+      svg:nth-child(1) {
+        margin-right: 10px;
+      }
+    }
+
+    .inProgress {
+      padding: 8px 13px;
+      background-color: white;
+      border-radius: 30px;
+      color: var(--color-blue);
+      border: 1px solid var(--color-blue);
+      transition: all 0.5s ease;
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--color-blue);
+        color: white;
+      }
+    }
+    select {
+      border-radius: 30px;
+      padding: 0 20px;
+      border: 1px solid var(--color-text);
+    }
+
     & > div {
       display: flex;
       flex-direction: row;
@@ -231,12 +291,13 @@ const Content = styled.main`
 
       &:nth-child(2) {
         border-top: 1px solid lightgrey;
-        padding: 25px;
+        padding: 10px 25px;
         border-bottom: 1px solid lightgrey;
       }
-      div:nth-child(2) {
+      div {
         display: flex;
         flex-direction: column;
+        align-items: center;
       }
     }
   }
@@ -249,26 +310,76 @@ const Content = styled.main`
     justify-content: space-around;
 
     .progressBox {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
+      position: relative;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      column-gap: 10px;
       padding: 30px;
       background-color: var(--color-bg-grey);
       border-radius: 30px;
+      min-height: 205px;
+
+      &:last-child {
+        background-color: var(--color-text);
+        color: white;
+        grid-template-columns: 0.8fr 1fr;
+
+        .progress {
+          height: 0.5rem;
+        }
+
+        img {
+          transform: none;
+          left: 0;
+        }
+
+        .smartProgress {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          column-gap: 10px;
+        }
+      }
+
+      img {
+        height: 180px;
+        position: absolute;
+        transform: scaleX(-1);
+        top: -25px;
+        right: 0;
+      }
 
       ul li {
         list-style: none;
+        position: relative;
+        padding-top: 10px;
+
+        span svg {
+          color: var(--color-red);
+        }
       }
     }
   }
 
   #profile {
     grid-area: profile;
+
+    img {
+      margin-right: 10px;
+      border-radius: 15px;
+    }
   }
 
   #getStarted {
     grid-area: getStarted;
+
+    div:first-child {
+      background-color: var(--color-bg-right-image);
+      border-radius: 30px 0 0 30px;
+      padding: 20px;
+    }
+    div:last-child {
+      border-top: 0.5px solid ghostwhite;
+    }
     a {
       padding: 15px 20px;
       background-color: var(--color-red);

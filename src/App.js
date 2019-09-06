@@ -23,8 +23,6 @@ const App = () => (
 );
 
 const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Cabin+Condensed:400,500,600,700&display=swap');
-
   :root{
     --color-main:#F6A01D;
     --color-alt-main:#FCD05F;
@@ -33,6 +31,7 @@ const GlobalStyle = createGlobalStyle`
     --color-xslight:#F9F1E9;
     --color-grey:#AEA1AE;
     --color-bg-grey: #F4F6F8;
+    --color-bg-right-image: #FFF2DE;
     --color-text:#110F10;
     --color-red:#FF7045;
     --color-blue:#5C6AFF;
@@ -51,9 +50,6 @@ const GlobalStyle = createGlobalStyle`
 
       &:hover{
         text-decoration: none;
-      }
-      svg{
-        padding-left: 10px;
       }
     }
   }
