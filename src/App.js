@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import { createGlobalStyle } from 'styled-components';
-import { Layout, NavigationBar, Home, Message, History, Tasks, NotFound } from './component/index';
+import { Layout, NavigationBar, Home, NotFound } from './component/index';
 
 const Nav = withRouter(NavigationBar);
 
